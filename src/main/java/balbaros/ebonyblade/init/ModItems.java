@@ -15,26 +15,30 @@ import java.util.ArrayList;
 
 @Mod.EventBusSubscriber( modid = Reference.MOD_ID )
 public class ModItems {
+	
+	public static final ArrayList<Item> MOD_ITEMS = new ArrayList<>();
 
     static Item crudeEbonite;
 
-    public static void init() {
-        crudeEbonite = new ItemBasic( "crude_ebonite" );
-        crudeEbonite.setCreativeTab( CreativeTabs.MISC );
+    public static void initItems() {
+        crudeEbonite = new ItemBasic( "crude_ebonite" ).setCreativeTab( CreativeTabs.MISC );
+        MOD_ITEMS.add( crudeEbonite );
     }
 
-    private static void registerRender( Item item ) {
+    static void registerRender( Item item ) {
         ModelLoader.setCustomModelResourceLocation( item, 0 , new ModelResourceLocation( item.getRegistryName(), "inventory" ) );
     }
 
     @SubscribeEvent
     public static void registerItems( RegistryEvent.Register<Item> event ) {
-        event.getRegistry().registerAll( crudeEbonite );
+        event.getRegistry().registerAll( MOD_ITEMS.toArray( new Item[0] ) );
     }
 
     @SubscribeEvent
-    public static void registerModels( ModelRegistryEvent event ) {
-        registerRender( crudeEbonite );
+    public static void registerRenders( ModelRegistryEvent event ) {
+    	for ( Item item : MOD_ITEMS ) {
+    		registerRender( item );
+    	}
     }
 
 }

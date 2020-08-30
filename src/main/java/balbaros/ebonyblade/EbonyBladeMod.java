@@ -1,5 +1,6 @@
 package balbaros.ebonyblade;
 
+import balbaros.ebonyblade.init.ModBlocks;
 import balbaros.ebonyblade.init.ModItems;
 import net.minecraft.init.Blocks;
 import net.minecraftforge.fml.common.Mod;
@@ -18,7 +19,9 @@ public class EbonyBladeMod {
     @EventHandler
     public void preInit( FMLPreInitializationEvent event ) {
         System.out.println( Reference.MOD_ID + " preinit" );
-        ModItems.init();
+        ModBlocks.initBlocks();
+        ModItems.initItems();
+        ModBlocks.initItemBlocks();
     }
 
     @EventHandler
