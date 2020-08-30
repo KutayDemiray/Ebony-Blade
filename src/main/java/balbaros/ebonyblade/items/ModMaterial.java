@@ -3,7 +3,7 @@ package balbaros.ebonyblade.items;
 import net.minecraft.item.Item;
 import net.minecraftforge.common.util.EnumHelper;
 
-public class CustomMaterial {
+public class ModMaterial {
 
     /**
      * Ebony is better than diamond in combat stats and enchantability, but worse in durability and mining speed\n

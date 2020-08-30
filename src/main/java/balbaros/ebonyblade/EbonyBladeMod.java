@@ -19,9 +19,8 @@ public class EbonyBladeMod {
     @EventHandler
     public void preInit( FMLPreInitializationEvent event ) {
         System.out.println( Reference.MOD_ID + " preinit" );
-        ModBlocks.initBlocks();
         ModItems.initItems();
-        ModBlocks.initItemBlocks();
+        ModBlocks.initBlocks();
     }
 
     @EventHandler

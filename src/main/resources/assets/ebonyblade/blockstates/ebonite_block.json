@@ -1,0 +1,10 @@
+{
+    "variants": {
+        "normal": {
+            "model": "ebonyblade:ebonite_block"
+        },
+        "inventory": {
+            "model": "ebonyblade:block/ebonite_block"
+        }
+    }
+}

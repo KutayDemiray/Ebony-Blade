@@ -14,50 +14,49 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.registries.IForgeRegistry;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 import balbaros.ebonyblade.Reference;
 import balbaros.ebonyblade.blocks.BlockBasic;
+import balbaros.ebonyblade.blocks.BlockOre;
 
 @Mod.EventBusSubscriber( modid = Reference.MOD_ID )
 public class ModBlocks {
 	
-	static Block eboniteOre;
-	static Item itemEboniteOre;
+	public static Block eboniteOre;
+	public static Block eboniteBlock;
 	
 	public static void initBlocks() {
-		eboniteOre = new BlockBasic( "ebonite_ore", Material.ROCK ).setCreativeTab( CreativeTabs.BUILDING_BLOCKS ).setHardness( 3.0f ).setLightLevel( 1.0f );
-		eboniteOre.setHarvestLevel( "pickaxe", 3);
+		eboniteBlock = new BlockBasic( "ebonite_block", Material.ROCK ).setCreativeTab( CreativeTabs.BUILDING_BLOCKS ).setHardness( 3.0f );
+		eboniteBlock.setHarvestLevel( "pickaxe", 3 );
+		
+		eboniteOre = new BlockOre( "ebonite_ore", Material.ROCK, ModItems.crudeEbonite, 1, 1 ).setCreativeTab( CreativeTabs.BUILDING_BLOCKS ).setHardness( 3.0f );
+		eboniteOre.setHarvestLevel( "pickaxe", 3 );
+        System.out.println( Reference.MOD_ID + "Ebonite Ore drop: " + eboniteOre.getItemDropped( eboniteOre.getDefaultState(), new Random(), 0 ).getRegistryName() );
 	}
-	
-	public static void initItemBlocks() {
-		itemEboniteOre = new ItemBlock( eboniteOre ).setRegistryName( eboniteOre.getRegistryName() );
-	}
-	
 	
 	@SubscribeEvent
 	public static void registerBlocks( RegistryEvent.Register<Block> event ) {
 		IForgeRegistry<Block> r = event.getRegistry();
+		
 		r.register( eboniteOre );
+		r.register( eboniteBlock );
 	}
 	
-	// TODO doesn't work :(
 	@SubscribeEvent
 	public static void registerItemBlocks( RegistryEvent.Register<Item> event ) {
 		IForgeRegistry<Item> r = event.getRegistry();
 		
 		r.register( new ItemBlock( eboniteOre ).setRegistryName( eboniteOre.getRegistryName() ) );
+		r.register( new ItemBlock( eboniteBlock ).setRegistryName( eboniteBlock.getRegistryName() ) );
 	}
 	
-	// TODO also doesn't work :(
 	@SubscribeEvent
 	public static void registerRenders( ModelRegistryEvent event ) {
-		//for ( Block block : MOD_BLOCKS ) {
-			Item itemEboniteOre = Item.getItemFromBlock( eboniteOre );
-			ModelLoader.setCustomModelResourceLocation( itemEboniteOre, 0, new ModelResourceLocation( itemEboniteOre.getRegistryName(), "inventory" ) );
-		//}
+		
+		ModItems.registerRender( Item.getItemFromBlock( eboniteOre ) );
+		ModItems.registerRender( Item.getItemFromBlock( eboniteBlock) );
+		
 	}
 	
-	
-	
-
 }

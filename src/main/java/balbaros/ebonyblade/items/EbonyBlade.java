@@ -5,7 +5,7 @@ import net.minecraft.item.ItemSword;
 public class EbonyBlade extends ItemSword {
 
     public EbonyBlade() {
-        super( CustomMaterial.EBONY );
+        super( ModMaterial.EBONY );
         setRegistryName( "ebony_blade" );
         setUnlocalizedName( "ebony_blade" );
     }
