@@ -1,0 +1,20 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "CCC",
+        "CCC",
+        "CCC"
+    ],
+    "key": {
+        "C": [
+            {
+                "item": "ebonyblade:crude_ebonite",
+                "data": 0
+            }
+        ]
+    },
+    "result": {
+        "item": "ebonyblade:ebonite_block",
+        "data": 0
+    }
+}

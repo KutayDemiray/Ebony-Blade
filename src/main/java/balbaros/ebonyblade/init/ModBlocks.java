@@ -26,13 +26,12 @@ public class ModBlocks {
 	public static Block eboniteOre;
 	public static Block eboniteBlock;
 	
-	public static void initBlocks() {
+	public static void init() {
 		eboniteBlock = new BlockBasic( "ebonite_block", Material.ROCK ).setCreativeTab( CreativeTabs.BUILDING_BLOCKS ).setHardness( 3.0f );
 		eboniteBlock.setHarvestLevel( "pickaxe", 3 );
 		
 		eboniteOre = new BlockOre( "ebonite_ore", Material.ROCK, ModItems.crudeEbonite, 1, 1 ).setCreativeTab( CreativeTabs.BUILDING_BLOCKS ).setHardness( 3.0f );
 		eboniteOre.setHarvestLevel( "pickaxe", 3 );
-        System.out.println( Reference.MOD_ID + "Ebonite Ore drop: " + eboniteOre.getItemDropped( eboniteOre.getDefaultState(), new Random(), 0 ).getRegistryName() );
 	}
 	
 	@SubscribeEvent

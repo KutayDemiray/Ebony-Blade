@@ -20,7 +20,7 @@ public class ModItems {
 
     static Item crudeEbonite;
 
-    public static void initItems() {
+    public static void init() {
         crudeEbonite = new ItemBasic( "crude_ebonite" ).setCreativeTab( CreativeTabs.MISC );
         MOD_ITEMS.add( crudeEbonite );
     }

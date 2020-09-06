@@ -1,0 +1,13 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+        {
+            "item": "ebonyblade:ebonite_block",
+            "data": 0
+        }
+    ],
+    "result": {
+        "item": "ebonyblade:crude_ebonite",
+        "count": 9
+    }
+}   
